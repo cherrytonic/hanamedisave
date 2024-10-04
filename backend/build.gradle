@@ -1,0 +1,58 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.3'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.medisave'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+	compileOnly 'org.projectlombok:lombok'
+	// 오라클 클라우드에 접속하기 위한 라이브러리 추가
+	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+	implementation 'com.oracle.database.security:osdt_cert'
+	implementation 'com.oracle.database.security:oraclepki'
+	implementation 'com.oracle.database.security:osdt_core'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'com.sun.mail:javax.mail:1.6.2'
+	implementation 'com.itextpdf:itext7-core:7.2.3'
+	implementation 'org.apache.httpcomponents.client5:httpclient5:5.1'
+	implementation 'org.apache.httpcomponents.core5:httpcore5:5.1'
+	//채팅
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.webjars:sockjs-client:1.1.2'
+	// stomp - 구독
+	implementation 'org.webjars:stomp-websocket:2.3.3-1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.apache.commons:commons-pool2'
+	implementation 'org.springframework:spring-messaging'
+
+	implementation 'net.nurigo:sdk:4.2.7'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
