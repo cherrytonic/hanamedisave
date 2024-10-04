@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'hana-regular';
+  src: url('../src/assets/fonts/Hana2-Regular.ttf') format('truetype');
+}
+
+element.style {
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  font-family: 'hana-regular';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: #E2F2EF; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

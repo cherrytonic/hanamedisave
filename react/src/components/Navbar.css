@@ -1,0 +1,15 @@
+.gradient-text {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'hana-regular';
+    background: linear-gradient(90deg, #00A669, #00FFC8); /* 그라데이션 효과 */
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.gradient-text-inner-shadow {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), /* 내부 그림자 효과 */
+                 0 -1px 1px rgba(255, 255, 255, 0.5); /* 밝은 부분 추가 */
+}

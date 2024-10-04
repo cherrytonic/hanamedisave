@@ -1,0 +1,67 @@
+body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.butt {
+    box-shadow: 0px 40px 80px 0px rgba(0, 0, 0, 0.1),
+    inset 0px -10px 20px 0px rgba(0, 0, 0, 0.1),
+    0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+body::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #009178;
+}
+.scrollbar-custom::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #009178;
+}
+
+.rotate-sprite {
+	width: 137.16px; /* 각 프레임의 가로 크기 */
+	height: 200px; /* 각 프레임의 세로 크기 */
+	background-image: url('../../assets/images/20231116015320887.png'); /* 업로드한 이미지 경로 */
+	background-repeat: no-repeat;
+	animation: rotate 1s steps(6) infinite; /* 5단계로 나눈 애니메이션 */
+  }
+  
+  @keyframes rotate {
+	100% {
+	  background-position: -823px 0; /* 100px씩 5프레임이므로 -500px 이동 */
+	}
+  }
+  
+  .clip-bottom {
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .clip-left {
+	clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }

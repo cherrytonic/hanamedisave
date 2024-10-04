@@ -1,0 +1,74 @@
+#dialogExtension {
+    position: absolute;
+    z-index: 99999999999999;
+    width: 99%;
+    height: 99%;
+}
+
+#dialogExtension #card{
+    position: absolute;
+    z-index: 99999999999999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: auto;
+}
+ /* 새로작ㅈ성 */
+#dialogExtension {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 400px;
+    z-index: 1000;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .card-content {
+    margin-bottom: 20px;
+  }
+  
+  .text-secondary {
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .action-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .action-button:nth-child(1) {
+    background-color: #f44336; /* Red color for the cancel button */
+  }
+  
+  .action-button:nth-child(1):hover {
+    background-color: #d32f2f;
+  }
+  

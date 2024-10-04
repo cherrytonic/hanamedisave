@@ -1,0 +1,51 @@
+.Modal {
+    position: absolute;
+    /* top: ; */
+    /* left: 40px;
+    right: 40px; */
+    bottom: 0;
+    background-color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 100%;
+    min-height: 30rem;
+    z-index:10;
+  }
+  
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(245, 245, 245, 0.495);
+  }
+  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:checked + div {
+  @apply border-[#009178];
+}
+input:checked + div svg {
+  @apply block;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #009178;
+}

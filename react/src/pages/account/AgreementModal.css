@@ -1,0 +1,41 @@
+/* Global CSS or your component-specific CSS */
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5); /* 배경을 어둡게 설정 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999; /* 다른 요소들보다 앞에 표시 */
+  }
+  
+  .modal-content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	max-width: 1200px;
+	width: 100%;
+	z-index: 10000; /* 모달 내용이 배경보다 앞에 위치 */
+  }
+  
+
+.scrollbar-custom::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #009178;
+}

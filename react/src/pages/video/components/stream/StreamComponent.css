@@ -1,0 +1,155 @@
+.nickname {
+    background: rgba(58, 64, 74, 0.651);
+    padding: 5px !important;
+    position: absolute;
+    z-index: 999;
+    color: #ffffff;
+}
+.form-control {
+    color: black;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#closeButton {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    z-index: 999;
+}
+
+#name-error-text {
+    color: #fd6d5f;
+    font-weight: bold;
+    text-align: center;
+}
+
+#nicknameForm {
+    padding: 10px;
+}
+.fullscreen {
+    top: 40px;
+}
+
+.streamComponent {
+    height: 100%;
+}
+
+video {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'hana-regular';
+}
+
+#statusIcons {
+    bottom: 30px;
+    background: #c71100;
+    height: fit-content;
+    position: absolute;
+    color: #ffffff;
+}
+
+#camIcon {
+  text-align: center;
+  padding: 6px;
+}
+
+#micIcon {
+  padding: 8px 6px 8px 6px;
+}
+
+#fullscreenButton {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    z-index: 1000;
+}
+#volumeButton {
+    position: absolute;
+    bottom: 45px;
+    right: 30px;
+    z-index: 1000;
+    color: #ffffff;
+}
+/* Contains the video element, used to fix video letter-boxing */
+.OT_widget-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+#input,
+#label {
+    color: white;
+}
+
+/* 추가 */
+.OT_widget-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
+  .nickname {
+    margin-bottom: 10px;
+  }
+  
+  #nicknameForm {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  #input {
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .error-text {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .streamComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #statusIcons {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  
+  #volumeButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
