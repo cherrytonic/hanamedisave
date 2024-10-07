@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   backend:
-    # build: ./backend  # backend 소스 폴더 경로
-    image: chaerytonic/medisave-backend:latest
+    build: ./backend  # backend 소스 폴더 경로
+    # image: chaerytonic/medisave-backend:latest
     container_name: backend
     working_dir: /app
     ports:
