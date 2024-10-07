@@ -203,7 +203,7 @@ const SavingsTermAndFrequency = ({ term, setTerm, paymentFrequency, setPaymentFr
                                         <div className="bg-white w-1/2 p-6 rounded-lg mt-6 inline-block shadow-lg">
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">회당 납입액</p>
-                                            <p className="text-lg text-black">{results.installmentPayment}원</p>
+                                            <p className="text-lg text-black">{results.installmentPayment.toLocaleString()}원</p>
                                             </div>
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">납입횟수</p>
@@ -211,7 +211,7 @@ const SavingsTermAndFrequency = ({ term, setTerm, paymentFrequency, setPaymentFr
                                             </div>
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">총 적금액</p>
-                                            <p className="text-lg text-black">{results.totalPayment}원</p>
+                                            <p className="text-lg text-black">{results.totalPayment.toLocaleString()}원</p>
                                             </div>
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">세전 이자</p>
@@ -228,7 +228,7 @@ const SavingsTermAndFrequency = ({ term, setTerm, paymentFrequency, setPaymentFr
                                             <hr className="border-gray-300 my-4" />
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg font-bold text-black">합계</p>
-                                            <p className="text-lg font-bold text-black">{results.totalAmount}원</p>
+                                            <p className="text-lg font-bold text-black">{results.totalAmount.toLocaleString()}원</p>
                                             </div>
                                             <p className="text-sm text-gray-500">예상 금액은 오차가 발생할 수 있습니다.</p>
                                         </div>

@@ -29,6 +29,7 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	compileOnly 'org.projectlombok:lombok'
 	// 오라클 클라우드에 접속하기 위한 라이브러리 추가
+	implementation group: 'com.oracle.ojdbc', name: 'orai18n', version: '19.3.0.0'
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	implementation 'com.oracle.database.security:osdt_cert'
 	implementation 'com.oracle.database.security:oraclepki'
