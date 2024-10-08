@@ -65,7 +65,7 @@
 
 | 구분            | 내용                                      | 비고                                           |
 |-----------------|-------------------------------------------|------------------------------------------------|
-| 이름            | 원채령                                    |  ![증명사진](exec/증사.jpg)                                              |
+| 이름            | 원채령                                    |  <img src="exec/증사.jpg" alt="설명 텍스트" width="200"/>                                            |
 | 연락처          | kimchae1205@gmail.com                      |                                                |
 | Frontend skill  | HTML, CSS, Javascript, React, Vue, Flutter |                                                |
 | Backend skill   | Java, Spring, Oracle                      |                                                |
