@@ -38,16 +38,16 @@ services:
     depends_on:
       - frontend
 
-  # fastapi:
-  #   build: ./fastapi  # fastapi 소스 폴더 경로
-  #   image: chaerytonic/medisave-fastapi:latest
-  #   container_name: fastapi
-  #   working_dir: /app
-  #   ports:
-  #     - "8000:8000"
-  #   volumes:
-  #     - ./fastapi:/app
-  #   command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+  fastapi:
+    build: ./fastapi  # fastapi 소스 폴더 경로
+    # image: chaerytonic/medisave-fastapi:latest
+    container_name: fastapi
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi:/app
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
   # openvidu:
   #   image: chaerytonic/medisave-openvidu:latest
