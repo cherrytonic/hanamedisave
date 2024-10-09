@@ -21,9 +21,11 @@ services:
     working_dir: /app
     ports:
       - "3000:3000"
-    volumes:
-      - build-data:/app/build  # 공유 볼륨에 빌드 결과 저장
-    command: ["npm", "run", "build"]
+      - "80:80"
+      - "443:443"
+    # volumes:
+    #   - build-data:/app/build  # 공유 볼륨에 빌드 결과 저장
+    # command: ["npm", "run", "build"]
 
   # nginx:
   #   image: nginx:latest
