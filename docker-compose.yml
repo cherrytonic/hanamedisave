@@ -21,7 +21,7 @@ services:
     working_dir: /app
     volumes:
       - build-data:/app/build  # 공유 볼륨에 빌드 결과 저장
-    command: ["npm", "run", "build"]
+    # command: ["npm", "run", "build"]
 
   nginx:
     image: nginx:latest
