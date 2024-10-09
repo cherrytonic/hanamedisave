@@ -1,39 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
+import Clipboard from '../assets/images/clipboard.svg'
+import Donut from '../assets/images/donut.svg'
+import Piggy from '../assets/images/Piggy bank.svg'
+import Talk from '../assets/images/talk.svg'
+import Marker from '../assets/images/marker.svg'
 import './MainSlides.css';
 
 const slides = [
     {
-      image: "/images/donut.svg",
+      image: Donut,
       text1: "자산 분석",
       text2: "내 보유 자산, 확인해보세요!",
       text3: "보유 하나은행 예금, 적금을 분석합니다.",
       bgColor: "#F5F5F5"
     },
     {
-      image: "/images/Piggy Bank.svg",
+      image: Piggy,
       text1: "건강 저축",
       text2: "의료비, 목표만큼 모아보세요!",
       text3: "목표하는 치료비를 건강 저축합니다.",
       bgColor: "#E6E6FA"
     },
     {
-      image: "/images/talk.svg",
+      image: Talk,
       text1: "메디포인트 신청",
       text2: "포인트 받고 건강 더해보세요!",
       text3: "목표한 치료 받으면 포인트를 받습니다.",
       bgColor: "#FFE4E1"
     },
     {
-      image: "/images/clipboard.svg",
+      image: Marker,
       text1: "진료비 비교",
       text2: "알뜰하게 병원을 비교해보세요!",
       text3: "병원 비급여 진료비를 보여드립니다.",
       bgColor: "#F5F5F5"
     },
     {
-      image: "/images/marker.svg",
+      image: Clipboard,
       text1: "진료 예약",
       text2: "병원 진료 예약도 한번에!",
       text3: "제휴 병원 비대면 상담 예약을 제공합니다.",
