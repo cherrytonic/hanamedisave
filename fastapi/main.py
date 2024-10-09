@@ -15,7 +15,8 @@ from insurance import parse_confirmation_document, parse_receipt_document, parse
 app = FastAPI()
 origins = [
 
-    "*"  # private 영역에서 사용한다면 *로 모든 접근을 허용할 수 있다.
+    "http://211.188.50.141",
+    "http://localhost:3000"
 ]
 
 app.add_middleware(
@@ -39,11 +40,21 @@ async def upload_photo(inputname: str = Form(...), inputresident1: int = Form(..
     content = await file.read()
     print(f"File size: {len(content)} bytes")
     filename = f"{str(uuid.uuid4())}.jpg"  # uuid로 유니크한 파일명으로 변경
+    file_path = os.path.join(UPLOAD_DIR, filename)
     with open(os.path.join(UPLOAD_DIR, filename), "wb") as fp:
         fp.write(content)  # 서버 로컬 스토리지에 이미지 저장 (쓰기)
 
-    result = detect_text('./iden_img', inputname, inputresident1, inputresident2)
-    return detect_text('./iden_img', inputname, inputresident1, inputresident2)
+    result = detect_text(UPLOAD_DIR, inputname, inputresident1, inputresident2)
+    
+    # 분석 후 이미지 파일 삭제
+    try:
+        os.remove(file_path)  # 파일 삭제
+        print(f"File {filename} deleted successfully.")
+    except Exception as e:
+        print(f"Error deleting file {filename}: {e}")
+
+    # 분석 결과 반환
+    return result
 
 
 class OcrResponse(BaseModel):
