@@ -21,20 +21,20 @@ services:
     working_dir: /app
     ports:
       - "3000:3000"
-    # volumes:
-    #   - build-data:/app/build  # 공유 볼륨에 빌드 결과 저장
-    # command: ["npm", "run", "build"]
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
     volumes:
-      - ./react/nginx/nginx.conf:/etc/nginx/nginx.conf  # Nginx 설정 파일
-      - build-data:/usr/share/nginx/html  # 공유 볼륨에서 빌드 파일 접근
-    depends_on:
-      - frontend
+      - build-data:/app/build  # 공유 볼륨에 빌드 결과 저장
+    command: ["npm", "run", "build"]
+
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./react/nginx/nginx.conf:/etc/nginx/nginx.conf  # Nginx 설정 파일
+  #     - build-data:/usr/share/nginx/html  # 공유 볼륨에서 빌드 파일 접근
+  #   depends_on:
+  #     - frontend
 
   fastapi:
     build: ./fastapi
