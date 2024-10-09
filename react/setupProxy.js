@@ -17,14 +17,14 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
-  app.use(
-    '/api/fast',
-    createProxyMiddleware({
-      target: 'http://localhost:8000',
-      // target: process.env.REACT_APP_FAST_API_URL,
-      changeOrigin: true,
-    })
-  );
+  // app.use(
+  //   '/api/fast',
+  //   createProxyMiddleware({
+  //     // target: 'http://localhost:8000',
+  //     // target: process.env.REACT_APP_FAST_API_URL,
+  //     changeOrigin: true,
+  //   })
+  // );
   app.use(
     '/B551182',
     createProxyMiddleware({
