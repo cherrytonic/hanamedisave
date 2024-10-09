@@ -14,7 +14,6 @@ from insurance import parse_confirmation_document, parse_receipt_document, parse
 # app = FastAPI(root_path="/api/fast")
 app = FastAPI()
 origins = [
-
     "http://211.188.50.141",
     "http://localhost:3000"
 ]
