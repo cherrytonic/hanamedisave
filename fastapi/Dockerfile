@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip \
+    && pip install --upgrade setuptools \
+    && pip install --no-cache-dir -r requirements.txt
+
 
 EXPOSE 8000
 
