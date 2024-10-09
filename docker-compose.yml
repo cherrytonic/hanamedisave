@@ -14,6 +14,8 @@ services:
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     command: ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]
+    networks:
+      - medisave
 
   frontend:
     build: ./react
@@ -23,6 +25,8 @@ services:
       - "3000:3000"
       - "80:80"
       - "443:443"
+    networks:
+      - medisave
     # volumes:
     #   - build-data:/app/build  # 공유 볼륨에 빌드 결과 저장
     # command: ["npm", "run", "build"]
@@ -47,6 +51,9 @@ services:
     volumes:
       - ./fastapi:/app
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    networks:
+      - medisave
 
-volumes:
-  build-data:
+networks:
+  medisave:
+    driver: bridge
