@@ -24,7 +24,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
+      - build-data:/app/build
     # command: ["npm", "start"]
 
   nginx:
@@ -57,3 +57,5 @@ services:
   #   environment:
   #     - OPENVIDU_SECRET=MY_SECRET
   #     - OPENVIDU_RECORDING=false
+volumes:
+  build-data:
