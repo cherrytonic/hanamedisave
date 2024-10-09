@@ -42,7 +42,8 @@ function Navbar() {
 
   useEffect(() => {
     if (user) {
-      const socket = new SockJS('http://localhost:8080/ws');
+      // const socket = new SockJS('http://localhost:8080/ws');
+      const socket = new SockJS('http://211.188.50.141/ws');
       const stompClient = Stomp.over(socket);
   
       stompClient.connect({}, () => {

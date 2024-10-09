@@ -159,14 +159,11 @@ const createMedAccount = async (accountType) => {
     console.log(params);
     
     try {
-        const response = await fetch('http://localhost:8080/api/account/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(params), // 객체를 JSON으로 변환하여 전송
+        const response = await http.post('/api/account/create', params, {
+          headers: {
+              'Content-Type': 'application/json',
+          },
         });
-
         if (!response.ok) {
             throw new Error('Failed to create MedAccount');
         }

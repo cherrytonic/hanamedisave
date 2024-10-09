@@ -3,8 +3,8 @@ import axios from 'axios';
 axios.defaults.withCredentials = false;
 
 export default axios.create({
-  baseURL: 'http://211.188.50.141:8080',
-  // baseURL: 'http://localhost:8080',
+  // baseURL: `${env.REACT_APP_BACKEND_URL}/api/fast`,
+  baseURL: 'http://localhost:8080',
   headers: {
     'Accept': 'application/json',
     // 'Access-Control-Allow-Origin': '*',
