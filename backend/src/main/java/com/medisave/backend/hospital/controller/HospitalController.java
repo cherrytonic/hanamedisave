@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {
+        "http://211.188.50.141", // 포트 8080 허용
+        "http://localhost:3000", // 포트 3000 허용
+})
 public class HospitalController {
 
     @Autowired
