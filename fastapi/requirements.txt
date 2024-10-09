@@ -12,7 +12,7 @@ googleapis-common-protos
 grpcio
 grpcio-status
 h11
-httptools
+httptools==0.6.1
 idna
 importlib-metadata
 proto-plus
