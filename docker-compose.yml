@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: chaerytonic/medisave-backends:latest
+    image: chaerytonic/medisave-backendd:latest
     container_name: backend
     working_dir: /app
     ports:
