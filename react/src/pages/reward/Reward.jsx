@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SplitText } from '../../components/SplitText';
 import http from '../../api/fastapi';
 import medisave from '../../api/medisave';
+import Talk from '../../assets/images/talk.svg'
 
 
 function Reward() {
@@ -337,7 +338,7 @@ function Reward() {
                 <div className="inline-block align-top bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all my-8 max-w-3xl w-full sm:p-6">
                   <div className="flex w-full items-center justify-center h-12 w-12 rounded-full">
                     <img
-                      src="/images/talk.svg" 
+                      src={Talk}
                       alt="Logo"
                       className="w-10"
                     />
