@@ -13,7 +13,7 @@ import ToolbarComponent from './toolbar/ToolbarComponent';
 
 var localUser = new UserModel();
 // const APPLICATION_SERVER_URL = process.env.NODE_ENV === 'production' ? 'https://www.hanamedisave.site:8443/' : 'https://www.localhost:5000/';
-const APPLICATION_SERVER_URL = 'https://www.hanamedisave.site/';
+const APPLICATION_SERVER_URL = 'https://www.hanamedisave.site';
 // const APPLICATION_SERVER_URL = 'http://www.localhost:8080/';
 
 class VideoRoomComponent extends Component {
@@ -568,14 +568,14 @@ class VideoRoomComponent extends Component {
     }
 
     async createSession(sessionId) {
-        const response = await axios.post(APPLICATION_SERVER_URL + 'api/sessions', { customSessionId: sessionId }, {
+        const response = await axios.post(APPLICATION_SERVER_URL + '/api/sessions', { customSessionId: sessionId }, {
             headers: { 'Content-Type': 'application/json', },
         });
         return response.data; // The sessionId
     }
 
     async createToken(sessionId) {
-        const response = await axios.post(APPLICATION_SERVER_URL + 'api/sessions/' + sessionId + '/connections', {}, {
+        const response = await axios.post(APPLICATION_SERVER_URL + '/api/sessions/' + sessionId + '/connections', {}, {
             headers: { 'Content-Type': 'application/json', },
         });
         return response.data; // The token
