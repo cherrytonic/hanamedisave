@@ -24,6 +24,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry){
         // ws 엔드포인트 등록하고 모든 도메인에서 접근 허용, SockJS 사용해서 브라우저가 웹소켓 지원하지 않을때 폴백 옵션 활성화(다른 수단으로 통신)
-        registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
+        registry.addEndpoint("/api/ws").setAllowedOriginPatterns("*").withSockJS();
     }
 }

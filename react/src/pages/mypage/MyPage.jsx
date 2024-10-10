@@ -37,7 +37,7 @@ function MyPage() {
   const connectWebSocket = () => {
     if (clientRef.current) return; // 이미 연결되어 있으면 실행하지 않음
     // const socket = new SockJS('http://localhost:8080/ws');
-    const socket = new SockJS('https://211.188.50.141:8080/ws');
+    const socket = new SockJS('https://www.hanamedisave.site/api/ws');
     const client = Stomp.over(socket);
 
     client.connect({}, () => {
