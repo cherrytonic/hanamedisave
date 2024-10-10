@@ -17,6 +17,7 @@ public class WebMvcConfig {
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:3000"); // React 앱의 주소
         config.addAllowedOrigin("http://211.188.50.141"); // React 앱의 주소
+        config.addAllowedOrigin("https://211.188.50.141"); // React 앱의 주소
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
