@@ -51,6 +51,8 @@ services:
       - "8000:8000"
     volumes:
       - ./fastapi:/app
+      - ./fastapi/iden_img:/app/iden_img
+      - ./fastapi/insurance_docs:/app/insurance_docs
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
     networks:
       - medisave
