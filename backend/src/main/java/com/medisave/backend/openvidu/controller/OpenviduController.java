@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import io.openvidu.java.client.*;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+        "https://www.hanamedisave.site", // 포트 8080 허용
+        "http://localhost:3000", // 포트 3000 허용
+})
 @RestController
 public class OpenviduController {
 

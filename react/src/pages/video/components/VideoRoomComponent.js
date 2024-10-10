@@ -14,7 +14,7 @@ import ToolbarComponent from './toolbar/ToolbarComponent';
 var localUser = new UserModel();
 // const APPLICATION_SERVER_URL = process.env.NODE_ENV === 'production' ? 'https://www.hanamedisave.site:8443/' : 'https://www.localhost:5000/';
 const APPLICATION_SERVER_URL = 'https://www.hanamedisave.site/';
-// const APPLICATION_SERVER_URL = 'http://www.localhost:5000/';
+// const APPLICATION_SERVER_URL = 'http://www.localhost:8080/';
 
 class VideoRoomComponent extends Component {
     constructor(props) {
