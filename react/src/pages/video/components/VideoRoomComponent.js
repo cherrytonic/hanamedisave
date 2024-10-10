@@ -1,4 +1,5 @@
 import axios from 'axios';
+import medisave from '../../../api/medisave';
 import { OpenVidu } from 'openvidu-browser';
 import React, { Component } from 'react';
 import { useNavigate } from 'react-router-dom'; 
@@ -568,14 +569,16 @@ class VideoRoomComponent extends Component {
     }
 
     async createSession(sessionId) {
-        const response = await axios.post(APPLICATION_SERVER_URL + '/openvidu/sessions', { customSessionId: sessionId }, {
+        // const response = await axios.post(APPLICATION_SERVER_URL + '/openvidu/sessions', { customSessionId: sessionId }, {
+        const response = await http.post('/api/sessions', { customSessionId: sessionId }, {
             headers: { 'Content-Type': 'application/json', },
         });
         return response.data; // The sessionId
     }
 
     async createToken(sessionId) {
-        const response = await axios.post(APPLICATION_SERVER_URL + '/openvidu/sessions/' + sessionId + '/connections', {}, {
+        // const response = await axios.post(APPLICATION_SERVER_URL + '/openvidu/sessions/' + sessionId + '/connections', {}, {
+        const response = await http.post('/api/sessions/' + sessionId + '/connections', {}, {
             headers: { 'Content-Type': 'application/json', },
         });
         return response.data; // The token
