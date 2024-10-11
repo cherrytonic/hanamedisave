@@ -4,17 +4,21 @@ import { SplitText } from '../../components/SplitText';
 import http from '../../api/fastapi';
 import medisave from '../../api/medisave';
 import Talk from '../../assets/images/talk.svg'
-
+import Check from '../../assets/images/check.png'
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Reward() {
   const [medAccountData, setMedAccountData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [storedUser, setStoredUser] = useState(JSON.parse(localStorage.getItem('user')));
   const [selectedAccount, setSelectedAccount] = useState([])
+  const [nameCheck, setNameCheck] = useState (false);
+  const navigate = useNavigate();
+  const notify = (text) => toast(text);
   const isRewardAvailable = (expectedEndDate) => {
     const today = new Date(); // 오늘 날짜
     const endDate = new Date(expectedEndDate); // expectedEndDate를 Date 객체로 변환
-
     // 오늘 또는 오늘 이전인 경우 true 반환
     return endDate <= today;
   };
@@ -50,6 +54,7 @@ function Reward() {
           ...prevResults,
           [fileType]: response.data,
         }));
+        setNameCheck(true)
       } catch (error) {
         console.error('Failed to upload and process file', error);
       }
@@ -96,23 +101,38 @@ function Reward() {
       <div className="mt-4 text-left space-y-2">
         <div className="flex justify-between">
           <span className="font-medium">병원 이름:</span>
-          <span>{detailResult.hospital_name || '병원 이름을 인식 중...'}</span>
+          <div className="flex">
+            <span>{detailResult.hospital_name || '병원 이름을 인식 중...'}</span>
+            {nameCheck && <img src={Check} alt="#" className="ml-1 inline size-5" />}
+          </div>
         </div>
         <div className="flex justify-between">
-          <span className="font-medium">환자 이름:</span>
-          <span>{detailResult.patient_name || '환자 이름을 인식 중...'}</span>
+          <span className="font-medium">신청인 이름:</span>
+          <div className="flex">
+            <span>{detailResult.patient_name || '환자 이름을 인식 중...'}</span>
+            {nameCheck && <img src={Check} alt="#" className="ml-1 inline size-5" />}
+          </div>
         </div>
         <div className="flex justify-between">
           <span className="font-medium">진료 기간:</span>
-          <span>{detailResult.treatment_date || '진료 기간을 인식 중...'}</span>
+          <div className="flex">
+            <span>{detailResult.treatment_date || '진료 기간을 인식 중...'}</span>
+            {nameCheck && <img src={Check} alt="#" className="ml-1 inline size-5" />}
+          </div>
         </div>
         <div className="flex justify-between">
           <span className="font-medium">치료명:</span>
-          <span>{detailResult.treatment_item || '치료명을 인식 중...'}</span>
+          <div className="flex">
+            <span>{detailResult.treatment_item || '치료명을 인식 중...'}</span>
+            {nameCheck && <img src={Check} alt="#" className="ml-1 inline size-5" />}
+          </div>
         </div>
         <div className="flex justify-between">
           <span className="font-medium">진료비 총액:</span>
-          <span>{detailResult.price || '치료비를 인식 중...'}</span>
+          <div className="flex">
+            <span>{detailResult.price || '치료비를 인식 중...'}</span>
+            {nameCheck && <img src={Check} alt="#" className="ml-1 inline size-5" />}
+          </div>
         </div>
       </div>
     );
@@ -196,7 +216,10 @@ function Reward() {
 
     // setStoredUser 상태를 업데이트하여 UI에도 반영
     setStoredUser(updatedUserResponse.data);
-
+    notify('리워드 지급이 완료되었습니다!')
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
       
     } catch (error) {
       console.error('리워드 생성 실패:', error);
@@ -218,6 +241,18 @@ function Reward() {
   const totalBalance = medAccountData.reduce((acc, account) => acc + account.medAccountBalance, 0);
     return (
       <div className="containers">
+        <ToastContainer
+                    position="top-center" // 알람 위치 지정
+                    autoClose={3000} // 자동 off 시간
+                    hideProgressBar={false} // 진행시간바 숨김
+                    closeOnClick // 클릭으로 알람 닫기
+                    rtl={false} // 알림 좌우 반전
+                    pauseOnFocusLoss // 화면을 벗어나면 알람 정지
+                    draggable // 드래그 가능
+                    pauseOnHover // 마우스를 올리면 알람 정지
+                    theme="light"
+                    // limit={1} // 알람 개수 제한
+                />
         <div className="bg-white py-10">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="max-w-2xl text-start">

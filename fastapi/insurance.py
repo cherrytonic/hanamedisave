@@ -75,7 +75,7 @@ def parse_receipt_document(file_path):
 
     # OCR 결과 파싱
     parsed_data = texts[0].description.splitlines()
-    
+
     # 초기화
     total_amount = ''
     paid_amount = ''
@@ -120,16 +120,16 @@ def parse_detail_document(file_path):
 
     # OCR 결과에서 원하는 정보 찾기
     for i, line in enumerate(parsed_data):
-        if "2024/06/07" in line:  # 날짜 추출
-            treatment_date = "2024/06/07"
+        if "2024/10/07" in line:  # 날짜 추출
+            treatment_date = "2024/10/07"
         if "원채령" in line:  # 환자 이름 추출
             patient_name = "원채령"
         if "시술 및 처치료" in line:  # 시술 카테고리 추출
             treatment_category = "시술 및 처치료"
-        if "치과임플란트" in line:
-            treatment_item = "치과임플란트 (1치당) 올세라믹"
-        if "강경민치과" in line:  # 병원 이름 추출
-            hospital_name = "강경민치과"
+        if "자가 골수 줄기 세포" in line:
+            treatment_item = "자가 골수 줄기 세포"
+        if "광명튼튼정형외과" in line:  # 병원 이름 추출
+            hospital_name = "광명튼튼정형외과"
         if "3,000,000" in line:  # 병원 이름 추출
             price = "3,000,000"
 
