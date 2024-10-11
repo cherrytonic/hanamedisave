@@ -97,7 +97,7 @@ function MyPage() {
   const [expandedAccount, setExpandedAccount] = useState(null);
   const [accountData, setAccountData] = useState([]);
   const [first, setFirst] = useState(null);
-  const [point, setPoint] = useState(0);
+  const [point, setPoint] = useState("0");
   const inputRefs = useRef([]);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -137,7 +137,10 @@ function MyPage() {
       console.error("Error joining MedAccount:", error.response ? error.response.data : error.message);
     } finally {
       setIsModalOpen(false)
-      window.location.reload();
+      notify('송금 완료되었습니다!')
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000); // 3초 후 새로고침
     }
   };
   const handleOpen = () => {
