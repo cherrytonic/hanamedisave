@@ -5,10 +5,7 @@ import MainSlides from '../../components/MainSlides';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReservationEditModal from './ReservationEditModal';
 import { useNavigate } from 'react-router-dom';
-import Clipboard from '../../assets/images/clipboard.svg'
-import Donut from '../../assets/images/donut.svg'
-import Piggy from '../../assets/images/Piggy bank.svg'
-import Talk from '../../assets/images/talk.svg'
+import Logo from '../../assets/images/gradientLogo.png'
 import Stetho from '../../assets/images/stethoscope_3d.png'
 import Coin from '../../assets/images/coin.png'
 import Growth from '../../assets/images/Growth.png' 
@@ -188,10 +185,16 @@ function Index() {
             </div>
             </>
             ) : (
-              <div className="flex justify-center items-center h-full">
-                <button onClick={handleLogin} className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700">
-                  로그인
-                </button>
+              <div>
+                <div className="flex flex-col justify-center items-center h-full pt-20">
+                  <img src={Logo} alt="" className="w-60"/>
+                  <span className="mt-4 text-3xl text-black">
+                    로그인하고 건강 세이브해보세요!
+                  </span>
+                    {/* <button onClick={handleLogin} className="mx-auto hover:bg-white bg-[#009178] text-white hover:text-[#009178] border border-[#009178] font-medium rounded-lg text-xl px-5 py-2.5 text-center flex items-center justify-center transition-colors duration-300">
+                      로그인
+                    </button> */}
+                  </div>
               </div>
             )}
           </div>
@@ -205,7 +208,7 @@ function Index() {
         )}
       </AnimatePresence>
       <div className="m-10">
-        <h2 className="text-2xl font-bold text-center mb-6">건강에 보탬이 되는 혜택</h2>
+        <h2 className="text-2xl font-bold text-center mb-10">건강에 보탬이 되는 혜택</h2>
           <div className="flex justify-between space-x-4">
             {benefits.map((benefit, index) => (
               <BenefitCard

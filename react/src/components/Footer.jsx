@@ -37,16 +37,16 @@ const Footer = () => {
           <h4 className="font-semibold text-xl mb-4">서비스</h4>
           <ul>
             <li className="mb-2">
-              <a href="/mypage" className="">자산 분석</a>
+              <a href="/mypage" className="">내 적금</a>
             </li>
             <li className="mb-2">
-              <a href="/account" className="">건강 적금</a>
+              <a href="/account" className="">목표 적금</a>
             </li>
             <li className="mb-2">
               <a href="/reward" className="">메디포인트</a>
             </li>
             <li className="mb-2">
-              <a href="/price" className="">병원비 비교</a>
+              <a href="/price" className="">병원 예약</a>
             </li>
           </ul>
         </div>

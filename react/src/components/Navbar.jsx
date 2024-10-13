@@ -120,7 +120,7 @@ function Navbar() {
             `hover:text-[#009178] font-medium relative text-xl group ${isActive ? "text-[#009178]" : "text-gray-800"}`
         }
         >
-          치료비 모으기
+          목표 적금 가입
           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#009178] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
         </NavLink>
         <NavLink
@@ -138,7 +138,7 @@ function Navbar() {
             `hover:text-[#009178] font-medium relative text-xl group ${isActive ? "text-[#009178]" : "text-gray-800"}`
         }
         >
-          병원 상담 예약
+          병원 예약
           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#009178] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
         </NavLink>
         {/* <div className="relative">
