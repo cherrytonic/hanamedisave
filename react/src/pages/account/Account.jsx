@@ -331,10 +331,10 @@ const createMedAccount = async (accountType) => {
               </div>
               {/* Bottom Section */}
               <div className="text-center mt-6 text-lg text-gray-700 bg-white shadow-lg p-4 rounded-lg border">
-                <span className="font-bold text-pink-600">세금만큼 메디포인트 돌려받기!</span>
+                <span className="font-bold text-pink-600">치료에 사용했다면, 메디포인트 돌려받기!</span>
                 <p className="text-sm text-gray-500 mt-2">
                   만기 해지 후 치료비 사용 증명시
-                  적금 이자의 세금을 메디포인트로 지급합니다.
+                  치료비의 0.1% 메디포인트로 지급합니다.(최대 3,000P)
                 </p>
               </div>
             </div>
