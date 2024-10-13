@@ -448,6 +448,7 @@ function MyPage() {
         accountId: accountId
       }); 
       setTimeout(() => {
+        notify('중도 인출이 완료되었습니다.')
         window.location.reload();
       }, 3000); // 3초 후 새로고침
     } catch (error) {

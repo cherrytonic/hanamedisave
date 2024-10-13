@@ -98,7 +98,7 @@ export const MainSlides = () => {
       return () => clearInterval(interval); // Clean up the interval on component unmount
     }, [page]);
   return (
-    <div className="slider-container rounded-lg overflow-x-hidden">
+    <div className="slider-container rounded-lg overflow-hidden">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={page}

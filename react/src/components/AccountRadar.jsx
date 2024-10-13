@@ -7,7 +7,7 @@ const AccountRadar = ({ data }) => {
         <div style={{ width: '420px', height: '420px', margin: '0 auto' }}>
             <ResponsivePie
                 data={data}
-                margin={{ top: 40, right: 40, bottom: 80, left: 40 }}
+                margin={{ top: 40, right: 100, bottom: 80, left: 100 }}
                 innerRadius={0.5}
                 padAngle={0.7}
                 cornerRadius={2}

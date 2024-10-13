@@ -246,7 +246,7 @@ public class AccountService {
             // 문자 발송
             String messageText = "[하나메디세이브] 귀하의 적금 \"" + medAccount.getMedAccountNm() + "\"이 곧 만기됩니다. 준비해주세요!";
             System.out.println(messageText);
-//                        smsUtil.sendSms(owner.getMemberPhoneNb(), messageText);
+            smsUtil.sendSms(owner.getMemberPhoneNb(), messageText);
         }
     }
 
@@ -545,7 +545,7 @@ public class AccountService {
         // 7. 메시지 전송 (메시지 내용은 원하는대로 수정 가능)
         String messageText = "[하나메디세이브] 적금 해지가 완료되어 보유하신 하나은행 계좌로 정상 예치되었습니다.";
         System.out.println(messageText);
-//        smsUtil.sendSms(member.getMemberPhoneNb(), messageText);
+        smsUtil.sendSms(member.getMemberPhoneNb(), messageText);
 
         try {
             // 기존 로직

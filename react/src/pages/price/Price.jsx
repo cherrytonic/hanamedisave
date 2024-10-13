@@ -176,15 +176,15 @@ function Price() {
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">병원 예약</h2>            
              {/* 지도 */}
             {hospitals.length > 0 && (
-              <div style={{ position: 'relative' }}>
+              <div style={{ position: 'relative', width: '100%', height: '600px' }}>
                 <Map
                   center={mapCenter}
                   style={{ width: '100%', height: '600px' }}
                   level={zoomLevel}
                   onDragEnd={handleMapDragEnd}
-                  className="rounded-xl"
+                  onLoad={() => setTimeout(() => setLoading(false), 500)}
                 >
-                  {hospitals.map((hospital, index) => {
+                  {!loading && hospitals.map((hospital, index) => {
                     const markerPosition = {
                       lat: parseFloat(hospital.latitude),
                       lng: parseFloat(hospital.longitude),
@@ -202,76 +202,65 @@ function Price() {
                           onClick={() => toggleInfoWindow(hospital.id)}
                         >
                           {/* 마커 이미지 */}
-                          <img
-                            src={MarkerImage}
-                            alt="marker"
-                            className="w-[60px] h-[50px]"
-                          />
+                          <div className="custom-marker" />
 
                           {/* Hover 시 간단한 정보 표시 */}
                           {hoveredHospital === hospital.id && !hospital.isOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, y: -10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -10 }}
-                              transition={{ duration: 0.3 }}
-                              className="absolute bottom-[60px] bg-white border border-gray-300 rounded-lg p-2 shadow-lg text-gray-800 font-medium"
-                            >
-                              {hospital.name}
-                            </motion.div>
-                          )}
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute bottom-[10px] bg-white border border-gray-300 rounded-lg p-2 shadow-lg text-gray-800 font-medium overlay-box"
+                          >
+                            <div className="overlay-arrow"></div> {/* 세모 추가 */}
+                            {hospital.name}
+                          </motion.div>
+                        )}
 
-                          {/* 클릭 시 상세 정보 표시 */}
-                          {hospital.isOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.5 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              exit={{ opacity: 0, scale: 0.5 }}
-                              transition={{ duration: 0.3 }}
-                              className="absolute bottom-[70px] bg-white border border-gray-200 rounded-xl shadow-2xl z-50 w-[240px] h-[180px]  overflow-x-hidden overflow-y-auto " // 너비를 줄임
-                            >
-                              {/* 닫기 버튼 이미지 */}
-                              <img
-                                src={CloseImage}
-                                alt="닫기"
-                                className="absolute top-2.5 right-2.5 w-5 h-5 cursor-pointer"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  toggleInfoWindow(hospital.id); // 정보창 닫기
-                                }}
-                              />
-                              
-                              {/* 병원 상세 정보 */}
-                              <div className="p-3 w-[120px] break-all">
-                                <div className="text-[#009178] font-bold text-lg mb-2">
-                                  {hospital.name}
-                                </div>
-                                <p className="text-gray-600 text-sm mb-2 break-all">
-                                  {hospital.address}
-                                </p>
-                                <div className="text-gray-600 text-sm">전화번호: {hospital.phoneNumber}</div>
-
-                                {/* 비급여 항목 */}
-                                <div className="mt-4">
-                                  <span className="text-[#009178] font-semibold">
-                                    비급여 항목
-                                  </span>
-                                  {hospital.items.length > 0 ? (
-                                    <ul className="list-none p-0 mt-2 text-sm">
-                                      {hospital.items.map((item, idx) => (
-                                        <li key={idx} className="flex justify-between text-gray-700 mb-2">
-                                          <span>{item.npayKorNm}</span>
-                                          <span className="ml-2 font-semibold text-gray-900">{item.curAmt?.toLocaleString()}원</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  ) : (
-                                    <span className="text-gray-500"> 정보 없음</span>
-                                  )}
-                                </div>
+                        {hospital.isOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.5 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute bottom-[10px] bg-white border border-gray-200 rounded-xl shadow-2xl z-50 w-[260px] h-[220px] overflow-x-hidden overflow-y-auto overlay-box"
+                          >
+                            <div className="overlay-arrow"></div>
+                            <img
+                              src={CloseImage}
+                              alt="닫기"
+                              className="absolute top-0 right-0 w-3 h-3 cursor-pointer"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleInfoWindow(hospital.id);
+                              }}
+                            />
+                            <div className="text-content">
+                              <div className="text-[#009178] font-bold text-lg mb-2">{hospital.name}</div>
+                              <p className="text-gray-600 text-sm mb-2">{hospital.address}</p>
+                              <div className="text-gray-600 text-sm">전화번호: {hospital.phoneNumber}</div>
+                              <div className="mt-4">
+                                <span className="text-[#009178] font-semibold">비급여 항목</span>
+                                {hospital.items.length > 0 ? (
+                                  <ul className="list-none p-0 mt-2 text-sm">
+                                    {hospital.items.map((item, idx) => (
+                                      <li key={idx} className="flex justify-between text-gray-700 mb-2">
+                                        <span className="text-break">{item.npayKorNm}</span>
+                                        <span className="ml-2 font-semibold text-gray-900">
+                                          {item.curAmt?.toLocaleString()}원
+                                        </span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <span className="text-gray-500">정보 없음</span>
+                                )}
                               </div>
-                            </motion.div>
-                          )}
+                            </div>
+                            <div className="overlay-arrow"></div> {/* 세모 추가 */}
+                          </motion.div>
+                        )}
                         </div>
                       </CustomOverlayMap>
 

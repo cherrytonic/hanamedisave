@@ -282,7 +282,7 @@ function Reward() {
                         //   })
                         // }}
                       >
-                        {String(storedUser.reward)}
+                        {String(storedUser.reward.toLocaleString())}
                       </SplitText>
                     </motion.div>
                 </AnimatePresence>
