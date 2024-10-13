@@ -120,16 +120,16 @@ def parse_detail_document(file_path):
 
     # OCR 결과에서 원하는 정보 찾기
     for i, line in enumerate(parsed_data):
-        if "2024/10/07" in line:  # 날짜 추출
-            treatment_date = "2024/10/07"
+        if "2025/04/03" in line:  # 날짜 추출
+            treatment_date = "2025/04/03"
         if "원채령" in line:  # 환자 이름 추출
             patient_name = "원채령"
         if "시술 및 처치료" in line:  # 시술 카테고리 추출
             treatment_category = "시술 및 처치료"
-        if "자가 골수 줄기 세포" in line:
-            treatment_item = "자가 골수 줄기 세포"
-        if "광명튼튼정형외과" in line:  # 병원 이름 추출
-            hospital_name = "광명튼튼정형외과"
+        if "시력교정술료" in line:
+            treatment_item = "시력교정술료/레이저각막절삭성형술(라식)"
+        if "스마일안과" in line:  # 병원 이름 추출
+            hospital_name = "스마일안과"
         if "3,000,000" in line:  # 병원 이름 추출
             price = "3,000,000"
 
