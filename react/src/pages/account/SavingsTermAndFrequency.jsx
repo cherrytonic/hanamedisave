@@ -215,11 +215,11 @@ const SavingsTermAndFrequency = ({ term, setTerm, paymentFrequency, setPaymentFr
                                             </div>
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">세전 이자</p>
-                                            <p className="text-lg text-black">{results.interestBeforeTax}원</p>
+                                            <p className="text-lg text-black">{results.interestBeforeTax.toLocaleString()}원</p>
                                             </div>
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">세후 이자</p>
-                                            <p className="text-lg text-black">{results.interestAfterTax}원</p>
+                                            <p className="text-lg text-black">{results.interestAfterTax.toLocaleString()}원</p>
                                             </div>
                                             <div className="flex justify-between items-center mb-4">
                                             <p className="text-lg text-black">적용이율</p>
