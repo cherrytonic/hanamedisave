@@ -42,8 +42,8 @@ function Navbar() {
 
   useEffect(() => {
     if (user) {
-      const socket = new SockJS('http://localhost:8080/api/ws');
-      // const socket = new SockJS('https://www.hanamedisave.site/api/ws');
+      // const socket = new SockJS('http://localhost:8080/api/ws');
+      const socket = new SockJS('https://www.hanamedisave.site/api/ws');
       const stompClient = Stomp.over(socket);
   
       stompClient.connect({}, () => {
