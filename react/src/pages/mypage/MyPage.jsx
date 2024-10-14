@@ -13,6 +13,7 @@ import ClosureModal from './ClosureModal'
 import Check from '../../assets/images/check.png'
 import http from '../../api/medisave';
 import WithdrawModal from './WithdrawModal';
+import LoadingOverlay from '../../components/LoadingOverlay';
 import './MyPage.css'
 const { Kakao } = window;
 
@@ -558,7 +559,7 @@ const calculateCompoundInterest = (account, accountData) => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;  // 로딩 중일 때 표시될 내용
+    return  <LoadingOverlay message="데이터를 불러오고 있습니다..." />;  // 로딩 중일 때 표시될 내용
   }
 
   if (!accountData) {

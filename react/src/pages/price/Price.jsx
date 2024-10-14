@@ -5,8 +5,9 @@ import http from '../../api/medisave';
 import { motion } from 'framer-motion'; 
 import MarkerImage from '../../assets/images/marker.svg'
 import CloseImage from '../../assets/images/CloseBtn.svg'
-import ChatWindow from '../chatting/Chatwindow';
+import LoadingOverlay from '../../components/LoadingOverlay';
 import ReservationModal from './ReservationModal';
+
 
 const { kakao } = window;
 
@@ -160,6 +161,7 @@ function Price() {
   //   console.log("Updated hospitals:", hospitals);
   // }, [hospitals]); // hospitals 상태가 변경될 때마다 로그 출력
   const toggleInfoWindow = (hospitalId) => {
+    setSelectedHospitalId(hospitalId); // 클릭된 병원의 ID를 설정
     setHospitals(hospitals.map(hospital => {
       if (hospital.id === hospitalId) {
         return { ...hospital, isOpen: !hospital.isOpen };
@@ -168,8 +170,12 @@ function Price() {
       }
     }));
   };
+
   return (
     <div className="containers">
+       {loading && <LoadingOverlay message="병원 정보를 불러오고 있습니다..." />} {/* 로딩 중일 때 보여줄 컴포넌트 */}
+      
+      {!loading && (
       <div className="bg-white py-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
           <div className="text-start">
@@ -197,6 +203,9 @@ function Price() {
                       >
                         <div
                           className="relative cursor-pointer flex flex-col items-center"
+                          style={{
+                            zIndex: hospital.id === selectedHospitalId ? 100 : 1, // 선택된 마커에 z-index를 높게 설정
+                          }}
                           onMouseEnter={() => setHoveredHospital(hospital.id)}
                           onMouseLeave={() => setHoveredHospital(null)}
                           onClick={() => toggleInfoWindow(hospital.id)}
@@ -345,6 +354,7 @@ function Price() {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,52 @@
+/* 화면 전체를 가리는 overlay 스타일 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(175, 233, 211); /* 투명도 있는 배경 */
+    z-index: 9999; /* 화면 위에 오도록 설정 */
+  }
+  
+  /* 로고 애니메이션 */
+  .floating-logo {
+    width: 300px; /* 로고 크기 조정 */
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  /* 위아래로 부드럽게 움직이는 애니메이션 */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* 위로 살짝 올라감 */
+    }
+    100% {
+      transform: translateY(0); /* 다시 원래 위치로 돌아옴 */
+    }
+  }
+  
+  /* 메시지 스타일 */
+  .loading-message {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #333;
+    animation: fade-in 1.5s ease-in-out infinite;
+  }
+  
+  /* 텍스트 애니메이션 */
+  @keyframes fade-in {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
