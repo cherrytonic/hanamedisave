@@ -426,12 +426,15 @@ public class AccountService {
         participantAccount.setAccountBalance(participantAccount.getAccountBalance().subtract(depositAmount));
         accountRepository.save(participantAccount);
 
-        // 적금 계좌에 금액 추가
-        medAccount.setMedAccountBalance(medAccount.getMedAccountBalance().add(depositAmount));
+        // 포인트를 BigDecimal로 변환하여 합산할 준비
+        BigDecimal pointAsBigDecimal = BigDecimal.valueOf(point);
+
+        // 적금 계좌에 금액 및 포인트 추가
+        BigDecimal totalDeposit = depositAmount.add(pointAsBigDecimal); // 금액과 포인트 합산
+        medAccount.setMedAccountBalance(medAccount.getMedAccountBalance().add(totalDeposit));
         medAccountRepository.save(medAccount);
 
         // 포인트 차감 (리워드 감소)
-        BigDecimal pointAsBigDecimal = BigDecimal.valueOf(point);
         memberService.updateReward(memberId, pointAsBigDecimal.negate());
 
         // 거래 기록 저장
@@ -443,11 +446,11 @@ public class AccountService {
         accountRecord.setDescription("Transfer to MedAccount " + medAccountId);
         accountRecordRepository.save(accountRecord);
 
-        // 적금 계좌의 입금 기록
+        // 적금 계좌의 입금 기록 (금액 + 포인트)
         SavingRecord savingRecord = new SavingRecord();
         savingRecord.setMedAccountId(medAccountId);
         savingRecord.setSavingDate(LocalDateTime.now());
-        savingRecord.setSavingAmount(depositAmount);
+        savingRecord.setSavingAmount(totalDeposit); // 금액 + 포인트 포함
         savingRecord.setSender(memberId);  // Member 대신 memberId를 String으로 저장
         savingRecordRepository.save(savingRecord);
 
