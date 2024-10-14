@@ -43,7 +43,7 @@ function Family() {
     } catch (error) {
       console.error("Error joining MedAccount:", error.response ? error.response.data : error.message);
     } finally {
-      // navigate('/mypage')
+      navigate('/mypage')
     }
   };
   const toggleDropdown = () => {
