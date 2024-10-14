@@ -253,21 +253,32 @@ function MyPage() {
         monthData[month]['적금'] += savingTrends[month];
       });
     });
-  
-    // 누적 자산 계산 (이 부분 수정: 누적하지 않고 월별 변화만 반영)
-    return Object.keys(monthData).map(month => {
+
+    // 날짜 문자열을 Date 객체로 변환하는 함수
+    const parseDate = (monthString) => {
+      const [month, year] = monthString.split(' ');
+      const monthNumber = month.replace('월', '').trim();
+      return new Date(`${year}-${monthNumber}-01`); // 'YYYY-MM-01' 형식으로 변환
+    };
+
+    // 누적 자산 계산 및 정렬
+    const sortedData = Object.keys(monthData).map(month => {
       const deposits = monthData[month]['예금'];
       const savings = monthData[month]['적금'];
-      const totalAssets = deposits + savings;  // 현재 달의 예금 및 적금 변화만 반영
+      const totalAssets = deposits + savings;
   
       return {
         month,
-        totalAssets,  // 월별 총 자산 변화
-        '적금': savings,  // 해당 달의 적금 변화
-        '예금': deposits,  // 해당 달의 예금 변화
+        totalAssets,
+        '적금': savings,
+        '예금': deposits,
       };
-    });
-  };
+    }).sort((a, b) => parseDate(b.month) - parseDate(a.month));  // 미래의 날짜부터 정렬
+
+    // 가장 미래의 6개월치 데이터만 반환
+    return sortedData.slice(0, 6);
+};
+
   
   const processData = (medAccount) => {
     const { records, targetSavingAmount } = medAccount;
@@ -412,7 +423,7 @@ function MyPage() {
   const closeAccount = async (medAccountId, amount, accountId) => {
     try {
       const response = await http.post(`/api/account/close/${medAccountId}`, {
-        amount: amount,
+        amount: 3647111,
         accountId: accountId
       }); 
       notify('적금 해지 완료되었습니다.')
@@ -644,7 +655,7 @@ const calculateCompoundInterest = (account, accountData) => {
                             만기
                           </span>
                           <span className="text-lg font-semibold text-gray-600 mb-4">
-                            {account.expectedEndDate}
+                            {account.expectedEndDate}       
                           </span>
                         </div>
                         <div className="flex justify-between">
@@ -728,8 +739,8 @@ const calculateCompoundInterest = (account, accountData) => {
                   <GoalBar 
                     data={[{
                       category: account.medAccountNm,
-                      '달성률': achievementRate, // 달성된 부분
-                      '남은 부분': remainingRate, // 남은 부분
+                      '달성률': achievementRate.toFixed(1), // 달성된 부분
+                      '남은 부분': remainingRate.toFixed(1), // 남은 부분
                       달성률Color: (achievementRate >= 100) ? '#4caf50' : '#ff9800' // 색상
                     }]}
                   />

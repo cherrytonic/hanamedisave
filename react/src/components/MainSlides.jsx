@@ -138,7 +138,7 @@ export const MainSlides = () => {
           </div>
           <div className="flex items-center justify-center w-full h-[50vh] p-8 ">
             {/* Image Section */}
-            <div className="w-[350px] flex justify-end items-center">
+            <div className="w-[350px] flex justify-end items-center mt-28">
               <img
                 src={slides[slideIndex].image}
                 alt={`Slide ${slideIndex + 1}`}

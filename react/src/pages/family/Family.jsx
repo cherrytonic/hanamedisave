@@ -43,7 +43,7 @@ function Family() {
     } catch (error) {
       console.error("Error joining MedAccount:", error.response ? error.response.data : error.message);
     } finally {
-      navigate('/')
+      // navigate('/mypage')
     }
   };
   const toggleDropdown = () => {
@@ -195,7 +195,7 @@ function Family() {
 
                 <button onClick={() => {
                   handleJoin()
-                  navigate('/')
+                  // navigate('/')
                 }} className="text-xl bg-[#009178] text-white border border-[#009178] hover:bg-white hover:text-[#009178] font-medium rounded-lg px-5 py-2.5 transition-colors duration-300">적금 참여하기</button>
               </div>
             </div>

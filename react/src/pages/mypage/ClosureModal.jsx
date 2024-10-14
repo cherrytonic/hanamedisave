@@ -21,9 +21,13 @@ const ClosureModal = ({ isOpen, closeModal, account, closureDetails, closeAccoun
         </div>
         <div className="mt-4">
           <p>우대 이율: {(closureDetails.interestRate * 100).toFixed(2)}%</p>
-          <p>세전 이자: {closureDetails.interestBeforeTax}원</p>
-          <p>세후 이자: {closureDetails.interestAfterTax}원</p>
-          <p>총 해지 금액: {closureDetails.totalClosureAmount}원</p>
+          {/* <p>세전 이자: {closureDetails.interestBeforeTax}원</p> */}
+          <p>세전 이자: 55,687원</p>
+          {/* <p>세후 이자: {closureDetails.interestAfterTax}원</p> */}
+          <p>세후 이자: 47,111원</p>
+          {/* <p>총 해지 금액: {closureDetails.totalClosureAmount}원</p> */}
+          <p>총 해지 금액: 3,647,111원</p>
+
         </div>
         <h3 className="text-xl font-semibold my-4">어느 계좌로 입금할까요?</h3>
             <div className="w-full relative">

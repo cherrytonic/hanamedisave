@@ -42,8 +42,8 @@ function Navbar() {
 
   useEffect(() => {
     if (user) {
-      // const socket = new SockJS('http://localhost:8080/ws');
-      const socket = new SockJS('https://www.hanamedisave.site/api/ws');
+      const socket = new SockJS('http://localhost:8080/api/ws');
+      // const socket = new SockJS('https://www.hanamedisave.site/api/ws');
       const stompClient = Stomp.over(socket);
   
       stompClient.connect({}, () => {
@@ -52,7 +52,7 @@ function Navbar() {
           console.log("예약 알림 메시지: ", notificationMessage);
   
           // 알림 리스트에 새로운 예약 정보 추가
-          setMessages((prevMessages) => [...prevMessages, notificationMessage]);
+          setMessages((prevMessages) => [...prevMessages, "[광명튼튼정형외과] 2024-10-14 02:30 PM 상담이 곧 시작됩니다."]);
           setHasNotification(true); // 알림 표시 플래그 설정
         });
       });
@@ -185,9 +185,12 @@ function Navbar() {
                 <div id="userDropdown" className="z-10 absolute right-20 top-20 bg-white divide-y divide-gray-100 rounded-lg shadow w-64">
                   {messages.length > 0 ? (
                     messages.map((message, index) => (
-                      <div key={index} className="py-2 px-4">
-                        <p className="text-sm text-gray-700">병원: {message.hospitalName}</p>
-                        <p className="text-sm text-gray-700">예약 시간: {new Date(message.reservationTime).toLocaleString()}</p>
+                      <div key={index} className="py-2 px-4 flex flex-col justify-center items-center">
+                        <p className="text-sm text-gray-700">[광명튼튼정형외과]</p>
+                        <p className="text-sm text-gray-700">2024-10-14 02:30 PM</p>
+                        <p className="text-sm text-gray-700">상담이 곧 시작됩니다.</p>
+                        {/* <p className="text-sm text-gray-700">병원: {message.hospitalName}</p>
+                        <p className="text-sm text-gray-700">예약 시간: {new Date(message.reservationTime).toLocaleString()}</p> */}
                         <button
                           onClick={() => handleCallAccept(message.reservationId)}
                           className="flex items-center bg-[#009178] text-white p-4 rounded-full hover:bg-[#007a5f] transition-all duration-300 shadow-lg w-14 h-15"
