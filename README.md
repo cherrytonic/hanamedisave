@@ -58,7 +58,7 @@
 ![서비스 아키텍쳐](exec/6.png)
 
 ### 3-2. ERD
-![ERD](exec/3.png)
+![ERD](exec/3.PNG)
 
 ---
 
